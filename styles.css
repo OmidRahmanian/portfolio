@@ -1,0 +1,54 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Home Section Styles */
+h1, .Homesection {
+    color: white !important; /* Sets the color of the h1 and elements in .Homesection to white */
+}
+
+#home {
+    background: url('img/Untitled_design.png') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+}
+
+/* Navbar Styles */
+.navbar-brand {
+    font-weight: bold;
+    color: #007bff;
+    transition: color 0.3s ease; /* Adds smooth transition for hover/focus effects */
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #0056b3; /* Darker shade on hover or focus */
+}
+
+/* Card Styles */
+.card {
+    margin-top: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2b2b2b !important;
+    padding: 15px 0;
+    color: #fff; /* Ensures text is visible on dark background */
+    text-align: center; /* Centers the text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #home {
+        height: auto; /* Adjusts height for smaller screens */
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
