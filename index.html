@@ -218,6 +218,32 @@
             color: #a5b4fc;
         }
 
+        /* --- Equal Height Cards --- */
+        #portfolio .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        #portfolio .col-md-4 {
+            display: flex;
+        }
+        
+        #portfolio .portfolio-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #portfolio .portfolio-card .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+
         /* Contact Section */
         #contact {
             background: radial-gradient(circle at top, rgba(34, 197, 94, 0.25), transparent 55%),
