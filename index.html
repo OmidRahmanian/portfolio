@@ -4,120 +4,529 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omid's Personal Website</title>
+    <title>Omid Rahmanian | Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Bootstrap 4 CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+
+    <!-- Your external CSS (optional) -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Custom Inline Styles -->
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #0f172a;
+            --accent-color: #22c55e;
+            --text-light: #e5e7eb;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #020617;
+            color: #e5e7eb;
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 0.9rem 1.5rem;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-link {
+            color: #e5e7eb !important;
+            margin: 0 0.3rem;
+            font-weight: 400;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        /* Hero Section */
+        #home {
+            position: relative;
+            height: 100vh;
+            background: url('img/Untitled_design.png') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            color: white;
+        }
+
+        #home::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.6), transparent 50%),
+                        linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95));
+            z-index: 0;
+        }
+
+        #home .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #a5b4fc;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+        }
+
+        .hero-title span {
+            color: var(--accent-color);
+        }
+
+        .hero-text {
+            max-width: 550px;
+            color: #cbd5f5;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            border: none;
+            border-radius: 999px;
+            padding: 0.6rem 1.7rem;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.35);
+        }
+
+        .btn-primary-custom:hover {
+            background: linear-gradient(135deg, #4338ca, #4f46e5);
+        }
+
+        .btn-outline-custom {
+            border-radius: 999px;
+            border: 1px solid #64748b;
+            color: #e5e7eb;
+        }
+
+        .btn-outline-custom:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        #about {
+            background: radial-gradient(circle at top, rgba(79, 70, 229, 0.25), transparent 55%),
+                        url('img/background.jpg') repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        #about::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.85);
+        }
+
+        #about .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .about-card {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 1.2rem;
+            padding: 2rem;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+        }
+
+        .tag-pill {
+            display: inline-block;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.1);
+            color: #e5e7eb;
+            font-size: 0.8rem;
+            margin: 0.1rem;
+        }
+
+        /* Portfolio */
+        #portfolio {
+            background: #020617;
+        }
+
+        .portfolio-card {
+            background: #0b1120;
+            border-radius: 1.1rem;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            overflow: hidden;
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.9);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 25px 70px rgba(15, 23, 42, 0.9);
+            border-color: var(--primary-color);
+        }
+
+        .portfolio-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .portfolio-card .card-body {
+            padding: 1.25rem 1.4rem 1.4rem;
+        }
+
+        .portfolio-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #a5b4fc;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: radial-gradient(circle at top, rgba(34, 197, 94, 0.25), transparent 55%),
+                        #020617;
+        }
+
+        .contact-card {
+            background: #020617;
+            border-radius: 1.3rem;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            padding: 2rem;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
+        }
+
+        .contact-link {
+            color: #e5e7eb;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            border-top: 1px solid rgba(148, 163, 184, 0.3);
+            font-size: 0.85rem;
+        }
+
+        /* Simple Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(18px);
+            animation: fadeInUp 0.9s forwards ease-out;
+        }
+
+        .fade-in-up.delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .fade-in-up.delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .fade-in-up.delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-title {
+                font-size: 2.1rem;
+            }
+            .hero-text {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#home">Omid</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#portfolio">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
-
-<section id="home" class="Homesection d-flex align-items-center text-center" style="height: 100vh; background: url('img/Untitled_design.png') no-repeat center center; background-size: cover;">
-    <div class="container">
-        <h1 style="color: white;">Hello, I am <a href="https://www.linkedin.com/in/omid-rahmanianca/" target="_blank">Omid</a></h1>
-        <p class="lead" style="color: white;">Computer Programming and Analysis at Seneca College</p>
-        <a href="#about" class="btn btn-primary mt-3">Resume</a>
+<!-- Home Section -->
+<section id="home">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-md-8 fade-in-up">
+                <p class="hero-subtitle mb-2">Data Science • Software • Security</p>
+                <h1 class="hero-title mb-3">Hi, I'm <span>Omid</span>.</h1>
+                <p class="hero-text mb-4">
+                    I’m a Data Science student at York University, with an academic background in
+                    computer programming and data analytics. I enjoy building secure, data-driven
+                    web applications and exploring how AI and data can solve real-world problems.
+                </p>
+                <div class="d-flex flex-wrap align-items-center">
+                    <a href="#about" class="btn btn-primary-custom mr-3 mb-2">View Profile</a>
+                    <a href="https://www.linkedin.com/in/omid-rahmanianca/" target="_blank" class="btn btn-outline-custom mb-2">
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-
 <!-- About Section -->
-<section id="about" class="py-5" style=" background: url('img/background.jpg') repeat center center;">
-    <div class="container">
-        <div class="row">
-     
-            <div class="col-md-12">
-                <h2 style="color: white;">About Me</h2>
-                <p style="color: white;">As a programmer and bug hunter, I am committed to creating secure and innovative websites.My expertise in cybersecurity motivates me to develop highly secure web applications and programs, always with a strong focus on user privacy.<br> I have a deep understanding of identifying vulnerabilities and a passion for continuously learning new skills to stay ahead in the field.
-                    My technical skills span across Python, Web Design, PHP, C, C++, and JavaScript, which I apply effectively to real-world projects. I possess strong leadership abilities and can manage teams effectively, yet I am equally comfortable working independently or as part of a collaborative team.</p>
+<section id="about">
+    <div class="container fade-in-up delay-1">
+        <div class="row justify-content-center mb-4 text-center">
+            <div class="col-lg-8">
+                <p class="section-subtitle">About</p>
+                <h2 class="section-title">Who I Am</h2>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="about-card">
+                    <p>
+                        I am a Data Science student at York University, with an academic background in
+                        computer programming and data analytics. I started in Computer Programming and
+                        Analysis at Seneca, where I built a strong foundation in software development,
+                        algorithms, and database design.
+                    </p>
+                    <p>
+                        As a programmer and security-minded developer, I enjoy designing clean, reliable,
+                        and secure applications. I’m especially interested in:
+                        turning raw data into insights, building tools that automate repetitive work,
+                        and making sure the systems I build are safe and resilient.
+                    </p>
+                    <p class="mb-3">
+                        I’ve worked with languages and tools like Python, JavaScript, PHP, C/C++,
+                        SQL, and modern web frameworks. I’m comfortable leading small projects,
+                        but I also love collaborating with teams and learning from other developers.
+                    </p>
+
+                    <div class="mt-3">
+                        <span class="tag-pill">Python</span>
+                        <span class="tag-pill">Data Analysis</span>
+                        <span class="tag-pill">Web Development</span>
+                        <span class="tag-pill">PHP / Laravel</span>
+                        <span class="tag-pill">JavaScript</span>
+                        <span class="tag-pill">C / C++</span>
+                        <span class="tag-pill">Cybersecurity Focus</span>
+                        <span class="tag-pill">SQL & Databases</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Portfolio Section -->
-<section id="portfolio" class="py-5 bg-light">
+<section id="portfolio">
     <div class="container">
-        <h2 class="text-center">Portfolio</h2>
+        <div class="row justify-content-center mb-4 text-center fade-in-up delay-1">
+            <div class="col-lg-8">
+                <p class="section-subtitle">Projects</p>
+                <h2 class="section-title">Selected Work</h2>
+                <p class="text-muted">
+                    A mix of web development, data analysis, and security-focused projects.
+                    (You can replace the placeholder images and text with your real work.)
+                </p>
+            </div>
+        </div>
+
         <div class="row">
-            <!-- Portfolio Item -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/project1.jpg" class="card-img-top" alt="Project 1">
+
+            <!-- Project 1 -->
+            <div class="col-md-4 mb-4 fade-in-up delay-1">
+                <div class="card portfolio-card">
+                    <img src="images/project1.jpg" class="card-img-top" alt="AI Wage Inequality Dashboard">
                     <div class="card-body">
-                        <h5 class="card-title">Project 1</h5>
-                        <p class="card-text">Description of Project 1.</p>
+                        <div class="portfolio-tag mb-1">Data Science • Python</div>
+                        <h5 class="card-title">AI & Wage Inequality Analysis</h5>
+                        <p class="card-text">
+                            Exploratory data analysis on Canadian wage datasets to understand how AI-exposed
+                            sectors differ from others in terms of wage growth and inequality.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/project1.jpg" class="card-img-top" alt="Project 1">
+            <!-- Project 2 -->
+            <div class="col-md-4 mb-4 fade-in-up delay-2">
+                <div class="card portfolio-card">
+                    <img src="images/project1.jpg" class="card-img-top" alt="Secure Web App">
                     <div class="card-body">
-                        <h5 class="card-title">Project 1</h5>
-                        <p class="card-text">Description of Project 1.</p>
+                        <div class="portfolio-tag mb-1">Web App • Security</div>
+                        <h5 class="card-title">Secure Authentication Portal</h5>
+                        <p class="card-text">
+                            A full-stack web application with user authentication, input validation,
+                            and basic security hardening to protect against common vulnerabilities.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/project1.jpg" class="card-img-top" alt="Project 1">
+            <!-- Project 3 -->
+            <div class="col-md-4 mb-4 fade-in-up delay-3">
+                <div class="card portfolio-card">
+                    <img src="images/project1.jpg" class="card-img-top" alt="YouTube Analytics Tool">
                     <div class="card-body">
-                        <h5 class="card-title">Project 1</h5>
-                        <p class="card-text">Description of Project 1.</p>
+                        <div class="portfolio-tag mb-1">APIs • Automation</div>
+                        <h5 class="card-title">YouTube Comment Analytics</h5>
+                        <p class="card-text">
+                            A Python tool that collects YouTube comments via API and performs sentiment
+                            analysis to help creators understand audience reactions over time.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/project1.jpg" class="card-img-top" alt="Project 1">
+            <!-- Extra cards (optional; you can remove or customize) -->
+            <div class="col-md-4 mb-4 fade-in-up delay-1">
+                <div class="card portfolio-card">
+                    <img src="images/project1.jpg" class="card-img-top" alt="Dashboard">
                     <div class="card-body">
-                        <h5 class="card-title">Project 1</h5>
-                        <p class="card-text">Description of Project 1.</p>
+                        <div class="portfolio-tag mb-1">Dashboards</div>
+                        <h5 class="card-title">Interactive Data Dashboard</h5>
+                        <p class="card-text">
+                            A responsive dashboard for visualizing KPIs and trends, built with modern
+                            front-end components and clean UI principles.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/project1.jpg" class="card-img-top" alt="Project 1">
+            <div class="col-md-4 mb-4 fade-in-up delay-2">
+                <div class="card portfolio-card">
+                    <img src="images/project1.jpg" class="card-img-top" alt="Automation Script">
                     <div class="card-body">
-                        <h5 class="card-title">Project 1</h5>
-                        <p class="card-text">Description of Project 1.</p>
+                        <div class="portfolio-tag mb-1">Scripting</div>
+                        <h5 class="card-title">Automation & Scripting Tools</h5>
+                        <p class="card-text">
+                            Small Python utilities to automate repetitive tasks, clean datasets,
+                            and speed up parts of the development workflow.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="images/project1.jpg" class="card-img-top" alt="Project 1">
+            <div class="col-md-4 mb-4 fade-in-up delay-3">
+                <div class="card portfolio-card">
+                    <img src="images/project1.jpg" class="card-img-top" alt="Game / Startup Project">
                     <div class="card-body">
-                        <h5 class="card-title">Project 1</h5>
-                        <p class="card-text">Description of Project 1.</p>
+                        <div class="portfolio-tag mb-1">Startup • Product</div>
+                        <h5 class="card-title">Entertainment & Game Startup</h5>
+                        <p class="card-text">
+                            Contributing to a game and entertainment startup as a software development
+                            lead, focusing on product structure, technical decisions, and user experience.
+                        </p>
                     </div>
                 </div>
             </div>
-            <!-- Repeat for other portfolio items -->
+
         </div>
     </div>
 </section>
 
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container fade-in-up">
+        <div class="row justify-content-center mb-4 text-center">
+            <div class="col-lg-8">
+                <p class="section-subtitle">Contact</p>
+                <h2 class="section-title">Let’s Build Something</h2>
+                <p class="text-muted">
+                    Open to internships, junior roles, and collaboration on data-driven or web projects.
+                    Feel free to reach out.
+                </p>
+            </div>
+        </div>
 
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="contact-card text-center">
+                    <p class="mb-2">
+                        Email:
+                        <a class="contact-link" href="mailto:omidr@my.yorku.ca">
+                            omidr@my.yorku.ca
+                        </a>
+                    </p>
+                    <p class="mb-2">
+                        LinkedIn:
+                        <a class="contact-link" href="https://www.linkedin.com/in/omid-rahmanianca/" target="_blank">
+                            linkedin.com/in/omid-rahmanianca
+                        </a>
+                    </p>
+                    <p class="mb-0">
+                        Based in Toronto, Canada · Available for remote and local opportunities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Footer -->
-<footer class=" text-white text-center py-3">
-    <p>&copy; 2024 Omid. All Rights Reserved.</p>
+<footer class="text-white text-center py-3">
+    <p class="mb-1">&copy; 2024 Omid Rahmanian. All Rights Reserved.</p>
+    <small>Built with ❤️ using HTML, Bootstrap, and custom CSS.</small>
 </footer>
 
 <!-- Bootstrap 4 JS and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
